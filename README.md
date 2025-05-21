@@ -10,13 +10,21 @@ Key components of this project include:
 
 This project provides a robust foundation for implementing advanced edge analytics and proactive maintenance strategies in industrial IoT environments. Users can adapt and extend the solution for their specific needs.
 
-## Prerequisites
+## Steps to Deploy the Fault Detection System
+
+### Prerequisites
 
 Ensure your environment is properly set up by following this guide: [Running custom Docker applications on the SecureEdge Pro](https://support.ixon.cloud/hc/en-us/articles/14231117531420-Running-custom-Docker-applications-on-the-SecureEdge-Pro).
 
-## Steps to Deploy the Fault Detection System
+### 1. Download and adjust to your SecureEdge Pro
 
-### 1. Train the Model
+Download the code of this project and change the IP address in the following files to the LAN IP address of your SecureEge Pro:
+
+- buildkitd-secure-edge-pro.toml
+- build_and_push_containers.sh
+- build_and_push_containers.cmd
+
+### 2. Train the Model
 
 #### On Unix-based systems:
 
@@ -41,7 +49,7 @@ These scripts will:
 - Train a TensorFlow model and convert it to TensorFlow Lite format.
 - Copy the generated `.tflite` model to the `tensor-flow-lite` directory for deployment.
 
-### 2. Build and Push Containers
+### 3. Build and Push Containers
 
 Run the `build_and_push_containers.sh` script to build and push all project containers:
 
@@ -57,7 +65,7 @@ For Windows:
 build_and_push_containers.cmd
 ```
 
-### 3. Deploy the Containers on SecureEdge Pro
+### 4. Deploy the Containers on SecureEdge Pro
 
 #### TensorFlow Lite Inference Container
 
@@ -79,11 +87,11 @@ Refer to the screenshot for configuration details:
 
 ![Create Container](node-red/create_container.png)
 
-### 4. Start the Containers
+### 5. Start the Containers
 
 - Wait for the containers to be created and start them via the SecureEdge Pro interface.
 
-### 5. Access Node-RED Dashboard
+### 6. Access Node-RED Dashboard
 
 - In IXON Cloud, create an HTTP Web Server to access the Node-RED dashboard on the SecureEdge Pro.
 
@@ -93,7 +101,7 @@ Refer to the screenshot for configuration details:
 
 - Open the Node-RED dashboard to configure the flows and simulate sensor data.
 
-### 6. Access Node-RED Virtual HMI
+### 7. Access Node-RED Virtual HMI
 
 - In IXON Cloud, create an HTTP Web Server to access the Node-RED Virtual HMI on the SecureEdge Pro.
 
@@ -103,11 +111,11 @@ Refer to the screenshot for configuration details:
 
 - Open the Node-RED Virtual HMI to monitor the system.
 
-### 7. Access TensorFlow Lite Inference API
+### 8. Access TensorFlow Lite Inference API
 
 - The TensorFlow Lite Flask API will be available at `http://<gateway-ip>:5050/predict`. Node-RED sends simulated sensor data to this endpoint for inference.
 
-### 8. Troubleshooting
+### 9. Troubleshooting
 
 - Ensure containers are running and accessible.
 - Check the Node-RED debug nodes and logs for errors.
