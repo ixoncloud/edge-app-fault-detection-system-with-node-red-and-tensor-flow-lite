@@ -20,7 +20,7 @@ cd tensor-flow-lite/
 docker buildx build --platform linux/arm64/v8 --tag 192.168.140.1:5000/tensor-flow-lite:latest --push .
 cd ..
 
-# Navigate to the node-red-influxdb directory and build the node-red-influxdb image
+# Navigate to the node-red directory and build the node-red image
 cd node-red/
 docker buildx build --platform linux/arm64/v8 --tag 192.168.140.1:5000/node-red:latest --push .
 cd ..
