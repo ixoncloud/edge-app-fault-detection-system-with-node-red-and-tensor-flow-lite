@@ -21,7 +21,7 @@ docker buildx build --platform linux/arm64/v8 --tag 192.168.140.1:5000/tensor-fl
 cd ..
 
 REM Navigate to the node-red directory and build the node-red image
-cd node-red-influxdb
+cd node-red
 docker buildx build --platform linux/arm64/v8 --tag 192.168.140.1:5000/node-red:latest --push .
 cd ..
 
